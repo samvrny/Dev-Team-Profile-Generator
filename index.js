@@ -3,7 +3,8 @@ const fs = require('fs');
 const generateHTML = require('./src/generateHyperText')
 const Engineer = require('./lib/Engineer.js');
 const Manager = require('./lib/Manager.js');
-const Intern = require('./lib/Intern.js')
+const Intern = require('./lib/Intern.js');
+const { isBuffer } = require('util');
 
 function Profile() {
     this.employeeArr = [] //if it doesnt work to have all the employee data in one array, three can be made, one each for managers, engineers, and interns. This will avoid possible problems when making the actual HTML
@@ -132,7 +133,10 @@ Profile.prototype.internPrompts = function() {
 Profile.prototype.writePage = function() {
     //console.table(this.employeeArr)
     const pageHTML = generateHTML(this.employeeArr);
-}
+    fs.writeFile('./dist/index.html', pageHTML, err => {
+        if(err) throw err;
+    });
+};
 
 new Profile().initializePrompts();
     

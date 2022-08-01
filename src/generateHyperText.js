@@ -1,18 +1,21 @@
 function renderEmployeeCard(employeeArr) {
+    let cardArr = [];
     for(i=0; i < employeeArr.length; i++) {
-        return `
+        let empCard = `
         <article>
             <div>
-                <h2>${employeeArr.name}</h2>
-                <h3>${employeeArr.role}</h3>
+                <h2>${employeeArr[i].name}</h2>
+                <h3>${employeeArr[i].role}</h3>
             </div>
             <div>
-                <p>Employee ID: ${employeeArr.id}</p>
+                <p>Employee ID: ${employeeArr[i].id}</p>
             </div>
         </article>
         `
+        cardArr.push(empCard)
     } 
-}
+    return cardArr;
+} //COULD ask tutor here what to do. Should I use a forEach loop? Or how to get my for loop to return what it needs too.
 
 function generateHyperText(employeeArr) {
     console.table(employeeArr)
