@@ -1,4 +1,6 @@
 const inquirer = require('inquirer');
+const fs = require('fs');
+const generateHTML = require('./src/generateHyperText')
 const Engineer = require('./lib/Engineer.js');
 const Manager = require('./lib/Manager.js');
 const Intern = require('./lib/Intern.js')
@@ -57,7 +59,7 @@ Profile.prototype.secondaryPrompts = function() {
                 this.internPrompts();
             } else {
                 return;
-                //this is where the call to generate the HTML page will be.
+                this.writePage();
             }
         })
 };
@@ -123,9 +125,13 @@ Profile.prototype.internPrompts = function() {
             this.employee = new Intern(name, email, id, school);
             this.employee.role = this.employee.getRole();
             this.employeeArr.push(this.employee);
-            console.table(this.employeeArr)
+            //console.table(this.employeeArr)
             this.secondaryPrompts();
         })
 };
+
+Profile.prototype.writePage = function() {
+    const pageHTML = generateHTML(employeeArr);
+}
 
 new Profile().initializePrompts();
