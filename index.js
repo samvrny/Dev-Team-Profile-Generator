@@ -34,8 +34,24 @@ Profile.prototype.initializePrompts = function() {
         this.employee = new Manager(name, email, id, office);
         this.employee.role = this.employee.getRole();
         this.employeeArr.push(this.employee);
-        console.table(this.employeeArr); //logs the current employee, which is the manager.
-    });
-}
+        this.secondaryPrompts();
+        //console.table(this.employeeArr); //logs the current employee, which is the manager.
+    })
+};
+
+Profile.prototype.secondaryPrompts = function() {
+    inquirer
+        .prompt({
+            type: 'list',
+            name: 'proceed',
+            message: 'Would you like to add an Engineer or Intern to your team, or are you finished adding team members?',
+            choices: ['Add Engineer', 'Add Intern', 'Finish Team']
+        })
+        .then(({proceed}) => {
+            if(proceed === 'Add Engineer') {
+                
+            }
+        })
+};
 
 new Profile().initializePrompts();
