@@ -1,0 +1,25 @@
+{
+  "name": "devteamprofilegenerator",
+  "version": "1.0.0",
+  "description": "This project is used to dynamically create a webpage with profiles of a web development team from the command line using nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samvrny/Dev-Team-Profile-Generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samvrny/Dev-Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/samvrny/Dev-Team-Profile-Generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  },
+  "devDependencies": {
+    "jest": "^28.1.3"
+  }
+}
