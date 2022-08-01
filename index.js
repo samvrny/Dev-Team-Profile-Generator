@@ -94,4 +94,37 @@ Profile.prototype.engineerPrompts = function() {
         })
 };
 
+Profile.prototype.internPrompts = function() {
+    inquirer
+        .prompt([
+            {
+                type: 'text',
+                name: 'name',
+                message: 'Please enter the interns name'
+            },
+            {
+                type: 'text',
+                name: 'email',
+                message: 'Please enter the interns email address'
+            },
+            {
+                type: 'text',
+                name: 'id',
+                message: 'Please enter the interns employee ID'
+            },
+            {
+                type: 'text',
+                name: 'github',
+                message: 'Please enter the interns school'
+            } 
+        ])
+        .then(({name, email, id, school}) => {
+            this.employee = new Engineer(name, email, id, school);
+            this.employee.role = this.employee.getRole();
+            this.employeeArr.push(this.employee);
+            console.table(this.employeeArr)
+            this.secondaryPrompts();
+        })
+};
+
 new Profile().initializePrompts();
