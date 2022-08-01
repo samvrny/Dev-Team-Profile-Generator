@@ -3,7 +3,7 @@ const Engineer = require('./lib/Engineer.js');
 const Manager = require('./lib/Manager.js');
 
 function Profile() {
-    this.employeeArr = []
+    this.employeeArr = [] //if it doesnt work to have all the employee data in one array, three can be made, one each for managers, engineers, and interns. This will avoid possible problems when making the actual HTML
     this.employee;
 }
 
@@ -27,12 +27,12 @@ Profile.prototype.initializePrompts = function() {
         },
         {
             type: 'text',
-            name: 'office',
+            name: 'officeNumber',
             message: 'please enter the managers office number'
         }
     ])
-    .then(({name, email, id, office}) => {
-        this.employee = new Manager(name, email, id, office);
+    .then(({name, email, id, officeNumber}) => {
+        this.employee = new Manager(name, email, id, officeNumber);
         this.employee.role = this.employee.getRole();
         this.employeeArr.push(this.employee);
         this.secondaryPrompts();
@@ -87,6 +87,7 @@ Profile.prototype.engineerPrompts = function() {
         ])
         .then(({name, email, id, github}) => {
             this.employee = new Engineer(name, email, id, github);
+            this.employee.role = this.employee.getRole();
             this.employeeArr.push(this.employee);
             //console.table(this.employeeArr)
             this.secondaryPrompts();
