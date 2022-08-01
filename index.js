@@ -49,7 +49,7 @@ Profile.prototype.secondaryPrompts = function() {
         })
         .then(({proceed}) => {
             if(proceed === 'Add Engineer') {
-                
+                console.table(this.employeeArr);
             }
         })
 };
