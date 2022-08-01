@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const Engineer = require('./lib/Engineer.js');
 const Manager = require('./lib/Manager.js');
+const Intern = require('./lib/Intern.js')
 
 function Profile() {
     this.employeeArr = [] //if it doesnt work to have all the employee data in one array, three can be made, one each for managers, engineers, and interns. This will avoid possible problems when making the actual HTML
@@ -114,12 +115,12 @@ Profile.prototype.internPrompts = function() {
             },
             {
                 type: 'text',
-                name: 'github',
+                name: 'school',
                 message: 'Please enter the interns school'
             } 
         ])
         .then(({name, email, id, school}) => {
-            this.employee = new Engineer(name, email, id, school);
+            this.employee = new Intern(name, email, id, school);
             this.employee.role = this.employee.getRole();
             this.employeeArr.push(this.employee);
             console.table(this.employeeArr)
