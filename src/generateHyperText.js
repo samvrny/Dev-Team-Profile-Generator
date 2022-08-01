@@ -1,3 +1,19 @@
+function renderEmployeeCard(employeeArr) {
+    for(i=0; i < employeeArr.length; i++) {
+        return `
+        <article>
+            <div>
+                <h2>${employeeArr.name}</h2>
+                <h3>${employeeArr.role}</h3>
+            </div>
+            <div>
+                <p>Employee ID: ${employeeArr.id}</p>
+            </div>
+        </article>
+        `
+    } 
+}
+
 function generateHyperText(employeeArr) {
     console.table(employeeArr)
     return `
@@ -17,9 +33,9 @@ function generateHyperText(employeeArr) {
             <h1>My Web Development Team</h1>
         </header>
 
-        <section>
-
-        </section>
+        <main>
+            ${renderEmployeeCard(employeeArr)}
+        </main>
 
         <footer>Made By Samuel Varney</footer>
     </body>
