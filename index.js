@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const Engineer = require('./lib/Engineer.js');
 const Manager = require('./lib/Manager.js');
 
 function Profile() {
@@ -49,8 +50,46 @@ Profile.prototype.secondaryPrompts = function() {
         })
         .then(({proceed}) => {
             if(proceed === 'Add Engineer') {
-                console.table(this.employeeArr);
+                this.engineerPrompts();
+            } 
+            else if(proceed === 'Add Intern') {
+                this.internPrompts();
+            } else {
+                return;
+                //this is where the call to generate the HTML page will be.
             }
+        })
+};
+
+Profile.prototype.engineerPrompts = function() {
+    inquirer
+        .prompt([
+            {
+                type: 'text',
+                name: 'name',
+                message: 'Please enter the engineers name'
+            },
+            {
+                type: 'text',
+                name: 'email',
+                message: 'Please enter the engineers email address'
+            },
+            {
+                type: 'text',
+                name: 'id',
+                message: 'Please enter the engineers employee ID'
+            },
+            {
+                type: 'text',
+                name: 'github',
+                message: 'Please enter the engineers github username'
+            }
+        ])
+        .then(({name, email, id, github}) => {
+            this.employee = new Engineer(name, email, id, github);
+            this.employeeArr.push(this.employee);
+            //console.table(this.employeeArr)
+            this.secondaryPrompts();
         })
 };
 

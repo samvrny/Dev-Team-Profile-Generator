@@ -5,3 +5,4 @@ test('creates a new engineer object, and defines its github', () => {
 
     expect(engineer.github).toEqual(expect.stringContaining(engineer.github));
 });
+
