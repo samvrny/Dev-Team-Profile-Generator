@@ -39,7 +39,6 @@ Profile.prototype.initializePrompts = function() {
         this.employee.role = this.employee.getRole();
         this.employeeArr.push(this.employee);
         this.secondaryPrompts();
-        //console.table(this.employeeArr); //logs the current employee, which is the manager.
     })
 };
 
@@ -58,7 +57,7 @@ Profile.prototype.secondaryPrompts = function() {
             else if(proceed === 'Add Intern') {
                 this.internPrompts();
             } else {
-                return;
+                // return;
                 this.writePage();
             }
         })
@@ -131,7 +130,9 @@ Profile.prototype.internPrompts = function() {
 };
 
 Profile.prototype.writePage = function() {
-    const pageHTML = generateHTML(employeeArr);
+    //console.table(this.employeeArr)
+    const pageHTML = generateHTML(this.employeeArr);
 }
 
 new Profile().initializePrompts();
+    
