@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const Employee = require('./lib/Employee.js');
+const Manager = require('./lib/Manager.js');
 
 function Profile() {
     this.employeeArr = []
@@ -30,9 +30,10 @@ Profile.prototype.initializePrompts = function() {
             message: 'please enter the managers office number'
         }
     ])
-    .then(({name, email, id}) => {
-        this.employee = new Employee(name, email, id)
-        console.log(this.employee);
+    .then(({name, email, id, office}) => {
+        this.employee = new Manager(name, email, id, office);
+        this.employee.role = this.employee.getRole();
+        console.table(this.employee); //logs the current employee, which is the manager.
     });
 }
 
