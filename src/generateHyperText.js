@@ -14,7 +14,7 @@ function renderEmployeeCard(employeeArr) {
         `
         cardArr.push(empCard)
     } 
-    return cardArr;
+    return cardArr.join('');
 } //COULD ask tutor here what to do. Should I use a forEach loop? Or how to get my for loop to return what it needs too.
 
 function generateHyperText(employeeArr) {
