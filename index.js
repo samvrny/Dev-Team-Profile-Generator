@@ -33,7 +33,8 @@ Profile.prototype.initializePrompts = function() {
     .then(({name, email, id, office}) => {
         this.employee = new Manager(name, email, id, office);
         this.employee.role = this.employee.getRole();
-        console.table(this.employee); //logs the current employee, which is the manager.
+        this.employeeArr.push(this.employee);
+        console.table(this.employeeArr); //logs the current employee, which is the manager.
     });
 }
 
