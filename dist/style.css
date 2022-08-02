@@ -1,5 +1,5 @@
 header {
-    background: linear-gradient(to bottom right, #1a535c, #4ecdc4, #ffe66d);
+    background: linear-gradient(to bottom right, #fab3a9, #ed6b86, #f05365, #fb3640);
     height: 100px;
     text-align: center;
     padding: 25px;
@@ -13,5 +13,5 @@ body {
 }
 
 .background {
-    background: linear-gradient(to bottom right, #fab3a9, #ed6b86, #f05365, #fb3640);
+    background: linear-gradient(to bottom right, #0496ff, #4ecdc4);
 }
