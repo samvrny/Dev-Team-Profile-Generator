@@ -1,0 +1,17 @@
+header {
+    background: linear-gradient(to bottom right, #1a535c, #4ecdc4, #ffe66d);
+    height: 100px;
+    text-align: center;
+    padding: 25px;
+    font-size: 40px;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.background {
+    background: linear-gradient(to bottom right, #fab3a9, #ed6b86, #f05365, #fb3640);
+}

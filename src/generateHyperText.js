@@ -10,12 +10,12 @@ function renderEmployeeCard(employeeArr) {
             dualAnswer = 'School: ' + employeeArr[i].getSchool();
         }
         let empCard = `
-        <article>
-            <div>
+        <article class="card col-3 m-2">
+            <div class="card-header background">
                 <h2>${employeeArr[i].getName()}</h2>
-                <h3>${employeeArr[i].getRole()}</h3>
+                <h4>${employeeArr[i].getRole()}</h3>
             </div>
-            <div>
+            <div class="card-body">
                 <p>Employee ID: ${employeeArr[i].getId()}</p>
                 <p>Email: <a href=mailto:"${employeeArr[i].getEmail()}">${employeeArr[i].getEmail()}</a></p>
                 <p>${dualAnswer}</p>
@@ -38,7 +38,7 @@ function generateHyperText(employeeArr) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie-edge">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="./dist/style.css"/>
+        <link rel="stylesheet" href="./style.css"/>
     </head>
 
     <body>
@@ -46,11 +46,9 @@ function generateHyperText(employeeArr) {
             <h1>My Web Development Team</h1>
         </header>
 
-        <main>
+        <main class="row justify-content-center">
             ${renderEmployeeCard(employeeArr)}
         </main>
-
-        <footer>Made By Samuel Varney</footer>
     </body>
     </html>
     `
