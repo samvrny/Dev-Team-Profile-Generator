@@ -1,24 +1,34 @@
 function renderEmployeeCard(employeeArr) {
     let cardArr = [];
     for(i=0; i < employeeArr.length; i++) {
+        let dualAnswer;
+        if(employeeArr[i].getRole() === 'Manager') {
+            dualAnswer = 'Office Number :' + employeeArr[i].getOfficeNumber();
+        } else if(employeeArr[i].getRole() === 'Engineer') {
+            dualAnswer = 'Github: <a href="https://github.com/' + employeeArr[i].getGithub() + '">' + employeeArr[i].getGithub() + '</a>';
+        } else if(employeeArr[i].getRole() === 'Intern') {
+            dualAnswer = 'School: ' + employeeArr[i].getSchool();
+        }
         let empCard = `
         <article>
             <div>
-                <h2>${employeeArr[i].name}</h2>
-                <h3>${employeeArr[i].role}</h3>
+                <h2>${employeeArr[i].getName()}</h2>
+                <h3>${employeeArr[i].getRole()}</h3>
             </div>
             <div>
-                <p>Employee ID: ${employeeArr[i].id}</p>
+                <p>Employee ID: ${employeeArr[i].getId()}</p>
+                <p>Email: <a href=mailto:"${employeeArr[i].getEmail()}">${employeeArr[i].getEmail()}</a></p>
+                <p>${dualAnswer}</p>
             </div>
         </article>
         `
         cardArr.push(empCard)
     } 
     return cardArr.join('');
-} //COULD ask tutor here what to do. Should I use a forEach loop? Or how to get my for loop to return what it needs too.
+}
 
 function generateHyperText(employeeArr) {
-    console.table(employeeArr)
+    console.table(employeeArr) //this is the consoletable to possibly be removed later
     return `
     <!DOCTYPE html>
     <html lang="en">

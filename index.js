@@ -4,7 +4,6 @@ const generateHTML = require('./src/generateHyperText')
 const Engineer = require('./lib/Engineer.js');
 const Manager = require('./lib/Manager.js');
 const Intern = require('./lib/Intern.js');
-const { isBuffer } = require('util');
 
 function Profile() {
     this.employeeArr = [] //if it doesnt work to have all the employee data in one array, three can be made, one each for managers, engineers, and interns. This will avoid possible problems when making the actual HTML
