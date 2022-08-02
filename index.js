@@ -5,11 +5,13 @@ const Engineer = require('./lib/Engineer.js');
 const Manager = require('./lib/Manager.js');
 const Intern = require('./lib/Intern.js');
 
+//this function sets the array for the employee data to be stored in
 function Profile() {
-    this.employeeArr = [] //if it doesnt work to have all the employee data in one array, three can be made, one each for managers, engineers, and interns. This will avoid possible problems when making the actual HTML
+    this.employeeArr = [] 
     this.employee;
 }
 
+//this part prompts for the managers name
 Profile.prototype.initializePrompts = function() {
     inquirer
     .prompt([
@@ -42,6 +44,7 @@ Profile.prototype.initializePrompts = function() {
     })
 };
 
+//this part asks a user with prompts if they would like to add more members to their team (emploees or interns) or if they are finished building their team
 Profile.prototype.secondaryPrompts = function() {
     inquirer
         .prompt({
@@ -57,12 +60,12 @@ Profile.prototype.secondaryPrompts = function() {
             else if(proceed === 'Add Intern') {
                 this.internPrompts();
             } else {
-                // return;
                 this.writePage();
             }
         })
 };
 
+//this part prompts users qith questions about engineers
 Profile.prototype.engineerPrompts = function() {
     inquirer
         .prompt([
@@ -91,11 +94,11 @@ Profile.prototype.engineerPrompts = function() {
             this.employee = new Engineer(name, email, id, github);
             this.employee.role = this.employee.getRole();
             this.employeeArr.push(this.employee);
-            //console.table(this.employeeArr)
             this.secondaryPrompts();
         })
 };
 
+//this part prompts users with questions about interns
 Profile.prototype.internPrompts = function() {
     inquirer
         .prompt([
@@ -123,19 +126,19 @@ Profile.prototype.internPrompts = function() {
         .then(({name, email, id, school}) => {
             this.employee = new Intern(name, email, id, school);
             this.employee.role = this.employee.getRole();
-            this.employeeArr.push(this.employee);
-            //console.table(this.employeeArr)
+            this.employeeArr.push(this.employee);           
             this.secondaryPrompts();
         })
 };
 
+//this part calls to generate an HTML file out of the employees selected in the above prompts
 Profile.prototype.writePage = function() {
-    //console.table(this.employeeArr)
     const pageHTML = generateHTML(this.employeeArr);
     fs.writeFile('./dist/index.html', pageHTML, err => {
         if(err) throw err;
     });
 };
 
+//this initializes the employee prompts
 new Profile().initializePrompts();
     

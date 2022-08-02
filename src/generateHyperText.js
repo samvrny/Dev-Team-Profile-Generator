@@ -1,3 +1,4 @@
+//this function loops through an array of employees and generates card html for each one of them
 function renderEmployeeCard(employeeArr) {
     let cardArr = [];
     for(i=0; i < employeeArr.length; i++) {
@@ -27,8 +28,8 @@ function renderEmployeeCard(employeeArr) {
     return cardArr.join('');
 }
 
+//this function generates the main body of the dynamic HTML
 function generateHyperText(employeeArr) {
-    console.table(employeeArr) //this is the consoletable to possibly be removed later
     return `
     <!DOCTYPE html>
     <html lang="en">
