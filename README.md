@@ -10,7 +10,7 @@ This project uses the "Jest" and "Inquirer" packages. Run nmp install from the c
 Run node index from the command line to invoke the application.
 
 Here is an example of the generated HTML:
-[](./images/generatedhtml.png)
+![](./images/generatedhtml.png)
 
 ## Made with
 * Javascript
