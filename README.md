@@ -9,6 +9,9 @@ This project uses the "Jest" and "Inquirer" packages. Run nmp install from the c
 ## Usage
 Run node index from the command line to invoke the application.
 
+Here is a walkthrough video for the application:
+![](https://drive.google.com/file/d/18xVCtOOc7I_Sb6M2UJPDaZixHaz4Neyd/view?usp=sharing)
+
 Here is an example of the generated HTML:
 ![](./images/generatedhtml.png)
 
